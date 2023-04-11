@@ -90,6 +90,7 @@ public void OnPluginStart() {
 	g_Data.boss = 0;
 
 	HookEvent("teamplay_round_start", Event_OnRoundStart);
+	HookEvent("arena_round_start", Event_OnArenaRoundStart);
 
 	g_Data.AddHostBot();
 }
@@ -113,4 +114,12 @@ public void Event_OnRoundStart(Event event, const char[] name, bool dontBroadcas
 		TF2_ChangeClientTeam(i, TFTeam_Blue);
 		TF2_RespawnPlayer(i);
 	}
+}
+
+public void Event_OnArenaRoundStart(Event event, const char[] name, bool dontBroadcast) {
+	if (g_Data.boss == NO_BOSS) {
+		return;
+	}
+
+	
 }
